@@ -1,0 +1,282 @@
+
+<!DOCTYPE html>
+<html lang="el">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>PetBuddy - Style Preview</title>
+
+    <!-- Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+    <!-- CSS Variables -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/components.css">
+</head>
+
+<body>
+
+
+    <!-- HEADER -->
+    <header>
+        <div class="logo">🐾 PetBuddy</div>
+
+        <nav>
+            <a href="#">Αρχική</a>
+            <a href="#">Αγγελίες</a>
+            <a href="#">Αιτήσεις</a>
+            <a href="#">Προφίλ</a>
+        </nav>
+
+        <button class="btn btn-primary">Σύνδεση</button>
+    </header>
+
+     <div class="container">
+        <!-- TYPOGRAPHY -->
+        <section>
+            <h1>Κεντρικός Τίτλος (H1)</h1>
+            <h2>Τίτλος Ενότητας (H2)</h2>
+            <h3>Υπότιτλος (H3)</h3>
+            <h4>Μικρότερος Τίτλος (H4)</h4>
+
+            <p>
+                Αυτό είναι ένα κανονικό κείμενο της εφαρμογής PetBuddy.
+                Εδώ μπορούμε να παρουσιάζουμε πληροφορίες για κατοικίδια,
+                αγγελίες και διαθέσιμους pet sitters.
+            </p>
+
+            <p class="muted">
+                Αυτό είναι ένα δευτερεύον κείμενο με muted χρώμα.
+            </p>
+
+            <p>
+                <strong>Έντονο κείμενο</strong> |
+                <em>Πλάγιο κείμενο</em> |
+                <u>Υπογραμμισμένο κείμενο</u>
+            </p>
+        </section>
+
+        <!-- COLORS -->
+        <section>
+            <h2>Χρωματική Παλέτα</h2>
+
+            <div class="color-grid">
+
+                <div class="color-card">
+                    <div class="color-box" style="background: var(--primary-color)"></div>
+                    <div class="color-info">
+                        <strong>Primary</strong>
+                        <small>#fd691f</small>
+                    </div>
+                </div>
+
+                <div class="color-card">
+                    <div class="color-box" style="background: var(--primary-hover)"></div>
+                    <div class="color-info">
+                        <strong>Primary Hover</strong>
+                        <small>#fc9820</small>
+                    </div>
+                </div>
+
+                <div class="color-card">
+                    <div class="color-box" style="background: var(--secondary-color)"></div>
+                    <div class="color-info">
+                        <strong>Secondary</strong>
+                        <small>#f1f3f5</small>
+                    </div>
+                </div>
+
+                <div class="color-card">
+                    <div class="color-box" style="background: var(--text-dark)"></div>
+                    <div class="color-info">
+                        <strong>Text Dark</strong>
+                        <small>#231c12</small>
+                    </div>
+                </div>
+
+                <div class="color-card">
+                    <div class="color-box" style="background: var(--text-muted)"></div>
+                    <div class="color-info">
+                        <strong>Text Muted</strong>
+                        <small>#625a51</small>
+                    </div>
+                </div>
+
+                <div class="color-card">
+                    <div class="color-box" style="background: var(--danger)"></div>
+                    <div class="color-info">
+                        <strong>Danger</strong>
+                        <small>#d83417</small>
+                    </div>
+                </div>
+
+                <div class="color-card">
+                    <div class="color-box" style="background: var(--bg-light)"></div>
+                    <div class="color-info">
+                        <strong>Background</strong>
+                        <small>#f6f2e7</small>
+                    </div>
+                </div>
+
+                <div class="color-card">
+                    <div class="color-box" style="background: var(--white); border: 1px solid #ddd;"></div>
+                    <div class="color-info">
+                        <strong>White</strong>
+                        <small>#ffffff</small>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- BUTTONS -->
+        <section>
+            <h2>Buttons</h2>
+
+            <div class="button-group">
+                <button class="btn btn-primary">Primary Button</button>
+                <button class="btn btn-accept">Accept Button</button>
+                <button class="btn btn-danger">Danger Button</button>
+                <button class="btn btn-primary" disabled>Disabled Button</button>
+            </div>
+        </section>
+
+        <!-- FORMS -->
+        <section>
+            <h2>Φόρμες και Inputs</h2>
+
+            <div class="form-group">
+                <label for="name">Ονοματεπώνυμο</label>
+                <input type="text" id="name" placeholder="Γράψε το όνομά σου">
+            </div>
+
+            <div class="form-group">
+                <label for="animal">Είδος κατοικιδίου</label>
+                <select id="animal">
+                    <option>Σκύλος</option>
+                    <option>Γάτα</option>
+                    <option>Άλλο</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="description">Περιγραφή</label>
+                <textarea id="description" rows="3"
+                    placeholder="Πληροφορίες για το κατοικίδιο..."></textarea>
+            </div>
+
+            <button class="btn btn-primary">Αποθήκευση</button>
+        </section>
+
+        <!-- TABLE -->
+        <section>
+            <h2>Πίνακας Αγγελιών</h2>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Pet Sitter</th>
+                        <th>Κατοικίδιο</th>
+                        <th>Περιοχή</th>
+                        <th>Κατάσταση</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr>
+                        <td>Μαρία</td>
+                        <td>Σκύλος</td>
+                        <td>Αθήνα</td>
+                        <td>Διαθέσιμη</td>
+                    </tr>
+
+                    <tr>
+                        <td>Γιώργος</td>
+                        <td>Γάτα</td>
+                        <td>Πειραιάς</td>
+                        <td>Διαθέσιμος</td>
+                    </tr>
+
+                    <tr>
+                        <td>Ελένη</td>
+                        <td>Σκύλος</td>
+                        <td>Μαρούσι</td>
+                        <td>Μη διαθέσιμη</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- CARDS -->
+        <section>
+            <h2>Cards</h2>
+
+            <div class="card">
+                <h3>🐶 Φροντίδα σκύλου</h3>
+
+                <p>
+                    Αναζητείται pet sitter για τη φροντίδα ενός σκύλου
+                    για το Σαββατοκύριακο.
+                </p>
+
+                <p class="muted">Αθήνα · 15€/ημέρα</p>
+
+                <button class="btn btn-primary">Προβολή Αγγελίας</button>
+            </div>
+        </section>
+
+        <!-- BADGES -->
+        <section>
+            <h2>Badges / Labels</h2>
+
+            <span class="badge badge-primary">Διαθέσιμο</span>
+            <span class="badge badge-accepted">Σε αναμονή</span>
+            <span class="badge badge-danger">Ακυρωμένο</span>
+        </section>
+
+        <!-- ALERTS -->
+        <section>
+            <h2>Μηνύματα Ενημέρωσης</h2>
+
+            <div class="alert alert-success">
+                Η αγγελία δημιουργήθηκε επιτυχώς!
+            </div>
+
+            <div class="alert alert-danger">
+                Παρουσιάστηκε σφάλμα κατά την αποθήκευση.
+            </div>
+        </section>
+
+        <!-- SPACING -->
+        <section>
+            <h2>Spacing Preview</h2>
+
+            <p>Μικρή απόσταση (8px)</p>
+            <div class="spacing-box" style="padding: var(--spacing-sm)">
+                Spacing Small
+            </div>
+
+            <p>Μεσαία απόσταση (16px)</p>
+            <div class="spacing-box" style="padding: var(--spacing-md)">
+                Spacing Medium
+            </div>
+
+            <p>Μεγάλη απόσταση (24px)</p>
+            <div class="spacing-box" style="padding: var(--spacing-lg)">
+                Spacing Large
+            </div>
+        </section>
+
+        <!-- FOOTER -->
+        <footer>
+            © 2026 PetBuddy - Style Preview
+        </footer>
+
+    </div>
+</body>
+</html>
