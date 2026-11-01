@@ -4,8 +4,9 @@
 
 body {
     margin: 0;
-    padding: var(--spacing-lg);
+    padding: 0;
     font-family: var(--font-family);
+    font-size: 20px;
     background-color: var(--bg-light);
     color: var(--text-dark);
 }
