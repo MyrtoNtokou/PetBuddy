@@ -78,6 +78,41 @@ button, .btn {
     cursor: not-allowed;
 }
 
+/* BUBBLE FILTERS & DROPDOWNS */
+.filter-chip,
+select.filter-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 16px;
+    font-size: 0.85rem;
+    font-family: var(--font-family);
+    border-radius: var(--radius-full);
+    
+    /* Αχνό πορτοκαλί με σκούρο πορτοκαλί περίγραμμα */
+    background-color: rgba(253, 105, 31, 0.12);
+    border: 1.5px solid var(--primary-color);
+    color: var(--text-dark);
+    
+    cursor: pointer;
+    text-decoration: none;
+    width: auto; /* για να μην πιάνει 100% το select */
+    outline: none;
+    transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.filter-chip:hover,
+select.filter-chip:hover {
+    background-color: rgba(253, 105, 31, 0.22);
+}
+
+/* Επιλεγμένο bubble: πιο έντονο πορτοκαλί */
+.filter-chip.active {
+    background-color: rgba(253, 105, 31, 0.45);
+    border-color: #d85210;
+    font-weight: bold;
+}
+
 /* FORMS */
 .form-group {
     margin-bottom: var(--spacing-md);
@@ -170,6 +205,60 @@ tr:hover {
     color: var(--white);
 }
 
+/* ADS GRID & INDEPENDENT COMPACT CARD */
+.ads-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--spacing-md);
+    margin-top: var(--spacing-md);
+}
+
+.ads-grid .card {
+    margin-bottom: 0;
+    padding: var(--spacing-md);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/* Επάνω μέρος: σταθερό τετράγωνο αριστερά που δεν αυξομειώνει την κάρτα */
+.ad-header-row {
+    display: flex;
+    gap: var(--spacing-md);
+    align-items: flex-start;
+}
+
+.ad-fixed-photo {
+    width: 110px;           /* Σταθερό ενδιάμεσο μέγεθος */
+    height: 110px;          /* Σταθερό ύψος */
+    aspect-ratio: 1 / 1;    /* Πάντα τετράγωνο */
+    object-fit: cover;
+    border-radius: var(--radius-sm);
+    flex-shrink: 0;         /* Δεν επηρεάζει ούτε επηρεάζεται από το layout */
+}
+
+.ad-summary {
+    flex: 1;
+    min-width: 0;
+}
+
+.ad-summary h3 {
+    margin: 0 0 4px 0;
+    font-size: 1.15rem;
+}
+
+.ad-summary p {
+    margin: 0 0 4px 0;
+    font-size: 0.9rem;
+    line-height: 1.35;
+}
+
+.ad-description {
+    margin: var(--spacing-sm) 0 0 0;
+    font-size: 0.9rem;
+    line-height: 1.45;
+}
+
 /* ALERTS */
 .alert {
     padding: var(--spacing-md);
@@ -212,5 +301,11 @@ footer {
 
     table {
         font-size: 0.85rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .ads-grid {
+        grid-template-columns: 1fr;
     }
 }
