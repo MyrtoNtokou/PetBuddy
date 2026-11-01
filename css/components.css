@@ -132,23 +132,36 @@ tr:hover {
     padding: var(--spacing-lg);
     border-radius: var(--radius-md);
     background-color: var(--white);
+    box-shadow: var(--box-shadow);
     border: 1px solid var(--secondary-color);
+    margin-bottom: var(--spacing-md);
 }
 
 .card h3 {
     color: var(--primary-color);
 }
 
+.card-header {
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
 /* BADGES */
 .badge {
     display: inline-block;
-    padding: var(--spacing-sm);
+    padding: var(--spacing-md);
     border-radius: var(--radius-full);
-    font-size: 0.85rem;
+    font-size: 1rem;
 }
 
-.badge-accepted {
-    background-color: var(--accept);
+.badge-completed {
+    background-color: var(--completed);
+    color: var(--white);
+}
+
+.badge-pending {
+    background-color: var(--pending);
     color: var(--white);
 }
 
@@ -195,10 +208,6 @@ footer {
 
     nav {
         flex-wrap: wrap;
-    }
-
-    section {
-        padding: var(--spacing-md);
     }
 
     table {
