@@ -13,7 +13,7 @@
   --white: #ffffff;
  
   /* Fonts & sizes */
-  --font-family: 'Ubuntu Mono', Tahoma;
+  --font-family: Tahoma, Verdana;
   --radius-sm: 4px;
   --radius-md: 8px;
   --radius-full: 999px;

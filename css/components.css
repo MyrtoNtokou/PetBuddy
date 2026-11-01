@@ -218,6 +218,34 @@ tr:hover {
     align-items: center;
 }
 
+.application-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.card-actions {
+    display: flex;
+    gap: 8px;
+}
+
+.card-link {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    margin-bottom: var(--spacing-md);
+}
+
+.card-link .card {
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.card-link:hover .card {
+    transform: translateY(-3px);
+    box-shadow: var(--box-shadow);
+}
+
 /* BADGES */
 .badge {
     display: inline-block;
@@ -318,6 +346,12 @@ footer {
     padding: var(--spacing-lg);
     color: var(--text-muted);
     font-size: 16px;
+}
+
+/* STAR RATING */
+.bi-star-fill {
+    color: #ffc107;
+    font-size: 20px;
 }
 
 /* FOR MOBILE */

@@ -10,25 +10,48 @@
     <!-- Font -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Ubuntu+Mono:wght@400;700&display=swap" rel="stylesheet">
 
     <!-- CSS Variables -->
     <link rel="stylesheet" href="css/base.css">
     <link rel="stylesheet" href="css/components.css">
     <link rel="stylesheet" href="css/style.css">
+    
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 </head>
 
 <body>
 
     <header>
-        <div class="logo">🐾 PetBuddy</div>
+        <!-- Logo -->
+        <a href="#" class="logo">
+            <span class="material-symbols-outlined">pets</span>
+            <span>PetBuddy</span>
+        </a>
 
+        <!-- Κεντρικό Μενού (Tabs) -->
         <nav>
-            <a href="#">Αρχική</a>
-            <a href="#">Αγγελίες</a>
-            <a href="#">Αιτήσεις</a>
-            <a href="#">Προφίλ</a>
+            <a href="#" class="nav-link active">
+                <span class="material-symbols-outlined">search</span>
+                <span>Αγγελίες</span>
+            </a>
+
+            <a href="#" class="nav-link">
+                <span class="material-symbols-outlined">add_circle</span>
+                <span>Νέα Αγγελία</span>
+            </a>
+
+            <a href="#" class="nav-link">
+                <span class="material-symbols-outlined">mail</span>
+                <span>Inbox</span>
+            </a>
         </nav>
+
+        <!-- Δεξιά: Προφίλ Χρήστη -->
+        <div>
+            <a href="#" class="profile-btn" title="Το προφίλ μου">
+                <span class="material-symbols-outlined">account_circle</span>
+            </a>
+        </div>
     </header>
 
     <div class="container">
@@ -36,35 +59,40 @@
             <h1>Οι Αγγελίες μου</h1>
             <p>Διαχειρίσου τις αγγελίες σου και δες τα αιτήματα που έλαβες από Pet Sitters.</p>
             
-             <div class="card">
-                <div class="card-header">
-                    <h3>Φροντίδα Rottweiler</h3>
-                    <span class="badge badge-pending">Σε εξέλιξη</span>
+            <a href="applications.html" class="card-link">
+                <div class="card">
+                    <div class="card-header">
+                        <h3>Φροντίδα Rottweiler</h3>
+                        <span class="badge badge-pending">Σε εξέλιξη</span>
+                    </div>
+
+                    <p>Αναζητείται pet sitter για φροντίδα μικρού rottweiler.</p>
+                    <p class="muted">Χαλάνδρι</p>
                 </div>
+            </a>
 
-                <p>Αναζητείται pet sitter για φροντίδα μικρού rottweiler.</p>
-                <p class="muted">Χαλάνδρι</p>
-            </div>
+            <a href="applications.html" class="card-link">
+                <div class="card">
+                    <div class="card-header">
+                        <h3>Dog Walking</h3>
+                        <span class="badge badge-completed">Ολοκληρώθηκε</span>
+                    </div>
 
-            <div class="card">
-                <div class="card-header">
-                    <h3>Dog Walking</h3>
-                    <span class="badge badge-completed">Ολοκληρώθηκε</span>
+                    <P>Αναζητείται pet sitter για βόλτες μικρόσωμου σκύλου.</P>
+                    <p class="muted">Μαρούσι</p>
                 </div>
+            </a>
+            <a href="applications.html" class="card-link">
+                <div class="card">
+                    <div class="card-header">
+                        <h3>Επίβλεψη γατών</h3>
+                        <span class="badge badge-completed">Ολοκληρώθηκε</span>
+                    </div>
 
-                <P>Αναζητείται pet sitter για βόλτες μικρόσωμου σκύλου.</P>
-                <p class="muted">Μαρούσι</p>
-            </div>
-
-            <div class="card">
-                <div class="card-header">
-                    <h3>Επίβλεψη γατών</h3>
-                    <span class="badge badge-completed">Ολοκληρώθηκε</span>
+                    <P>Αναζητείται pet sitter για επίβλεψη 2 γατών.</P>
+                    <p class="muted">Μαρούσι</p>
                 </div>
-
-                <P>Αναζητείται pet sitter για επίβλεψη 2 γατών.</P>
-                <p class="muted">Μαρούσι</p>
-            </div>
+            </a>
         </main>
     </div>
 
