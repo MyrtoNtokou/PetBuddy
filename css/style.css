@@ -1,0 +1,24 @@
+/* css/variables.css */
+:root {
+  /* Colors */
+  --primary-color: #fd691f;
+  --primary-hover: #fc9820;
+  --secondary-color: #f3efe5;
+  --text-dark: #231c12;
+  --text-muted: #625a51;
+  --danger: #d83417;
+  --accept:#74d931;
+  --bg-light: #fffcf7;
+  --white: #ffffff;
+ 
+  /* Fonts & sizes */
+  --font-family: 'Ubuntu Mono', 'Cascadia Code', Tahoma, Verdana, sans-serif;
+  --radius-sm: 4px;
+  --radius-md: 8px;
+
+  /* Shadows & Spacing */
+  --box-shadow: 0 2px 8px rgba(39, 22, 12, 0.105);
+  --spacing-sm: 8px;
+  --spacing-md: 16px;
+  --spacing-lg: 24px;
+}
