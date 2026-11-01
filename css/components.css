@@ -13,28 +13,64 @@ header {
     flex-wrap: nowrap;
 }
 
+.logo,
+.nav-link,
+.profile-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    text-decoration: none;
+}
+
+/* Pet Buddy */
 .logo {
     color: var(--primary-color);
-    font-size: 1.7rem;
+    font-size: 1.5rem;
     font-weight: bold;
     flex-shrink: 0;
 }
 
+/* 3. Αγγελίες, Νέα Αγγελία, Inbox */
 nav {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 150px;
+    gap: 20px;
     flex: 1;
 }
 
-nav a {
+.nav-link {
     color: var(--text-dark);
-    text-decoration: none;
+    padding: var(--spacing-sm) var(--spacing-md);
+    border-radius: var(--radius-full);
+    font-size: 1rem;
+    font-weight: 500;
+    transition: background-color 0.2s ease, color 0.2s ease;
 }
 
-nav a:hover {
+.nav-link:hover {
+    background-color: var(--secondary-color);
     color: var(--primary-color);
+}
+
+.nav-link.active {
+    color: var(--primary-color);
+    font-weight: bold;
+}
+
+/* Profile */
+.profile-btn {
+    padding: 6px 14px;
+    border-radius: var(--radius-full);
+    color: var(--text-dark);
+    font-size: 0.95rem;
+    transition: border-color 0.2s ease, background-color 0.2s ease;
+}
+
+.profile-btn:hover {
+    color: var(--primary-color);
+    background-color: var(--secondary-color);
+    font-weight: bold;
 }
 
 /* BUTTONS */
