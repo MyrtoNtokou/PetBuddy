@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="el">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PetBuddy - Λεπτομέρειες Αγγελίας</title>
+
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/addStyle.css">
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header>
+        <a href="browser.html" class="logo">
+            <span class="material-symbols-outlined">pets</span>
+            <span>PetBuddy</span>
+        </a>
+
+        <!-- Main Menu -->
+        <nav>
+            <a href="browser.html" class="nav-link active">
+                <span class="material-symbols-outlined">search</span>
+                <span>Αγγελίες</span>
+            </a>
+
+            <a href="#" class="nav-link">
+                <span class="material-symbols-outlined">add_circle</span>
+                <span>Νέα Αγγελία</span>
+            </a>
+
+            <a href="requests.html" class="nav-link">
+                <span class="material-symbols-outlined">mail</span>
+                <span>Inbox</span>
+            </a>
+        </nav>
+
+        <!-- Profile -->
+        <div>
+            <a href="#" class="profile-btn" title="Το προφίλ μου">
+                <span class="material-symbols-outlined">account_circle</span>
+            </a>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container" style="padding-top: var(--spacing-lg); padding-bottom: var(--spacing-lg);">
+        <div class="card" style="max-width: 820px; margin: auto;">
+            
+            <!-- 1. Pet name and photo -->
+            <div class="ad-header-row" style="border-bottom: 1px solid var(--secondary-color); padding-bottom: var(--spacing-md); margin-bottom: var(--spacing-md);">
+                <img class="ad-fixed-photo" src="https://images.unsplash.com/photo-1543466835-00a7907e9de1?w=400&auto=format&fit=crop" alt="Μάξι" style="width: 130px; height: 130px;">
+                <div class="ad-summary">
+                    <h1 style="margin: 0 0 4px 0; font-size: 2rem;">Μάξι</h1>
+                    <p class="muted" style="font-size: 1.05rem; margin: 0 0 8px 0;">Σκύλος</p>
+                </div>
+            </div>
+
+            <!-- 2. Add info -->
+            <div class="ad-highlight-banner">
+                <!-- Basic details -->
+                <div class="banner-meta-row">
+                    <div class="banner-meta-item">
+                        <p class="meta-label">Είδος Υπηρεσίας</p>
+                        <p class="meta-value">Βόλτα</p>
+                    </div>
+                    <div class="banner-meta-item">
+                        <p class="meta-label">Περιοχή</p>
+                        <p class="meta-value">Μαρούσι</p>
+                    </div>
+                    <div class="banner-meta-item">
+                        <p class="meta-label">Ημερομηνία</p>
+                        <p class="meta-value">
+                            <span class="material-symbols-outlined" style="font-size: 1.15rem; vertical-align: middle; position: relative; top: -2px;">calendar_today</span>
+                            14/11/2026
+                        </p>
+                    </div>
+                </div>
+                <!-- Description -->
+                <div class="banner-description">
+                    <strong>Περιγραφή Αγγελίας:</strong> Χρειαζόμαστε κάποιον για απογευματινή βόλτα για τη συγκεκριμένη ημέρα λόγω υποχρέωσης. Πολύ φιλικός και ήρεμος στο λουρί.
+                </div>
+            </div>
+
+            <!-- 3. Pet Info -->
+            <h3 style="border-bottom: 2px solid var(--secondary-color); padding-bottom: 4px; margin-bottom: 12px;">Στοιχεία Κατοικιδίου</h3>
+
+            <div class="details-row">
+                <div class="details-field">
+                    <strong>Ηλικία:</strong>
+                    <span>3 ετών</span>
+                </div>
+                <div class="details-field">
+                    <strong>Ράτσα:</strong>
+                    <span>Golden Retriever</span>
+                </div>
+                <div class="details-field">
+                    <strong>Μέγεθος:</strong>
+                    <span>Μεγάλο (28 kg)</span>
+                </div>
+            </div>
+
+            <div class="details-row">
+                <div class="details-field">
+                    <strong>Εμβόλια:</strong>
+                    <span>Πλήρως</span>
+                </div>
+                <div class="details-field">
+                    <strong>Στείρωση:</strong>
+                    <span>Ναι</span>
+                </div>
+                <div class="details-field"></div>
+            </div>
+
+            <div class="details-notes" style="margin-top: 10px;">
+                <p><strong>Συμπεριφορά & Χαρακτήρας:</strong></p>
+                <p class="muted">Κοινωνικός, εξοικειωμένος με παιδιά, δεν εμφανίζει επιθετικότητα σε άλλα ζώα.</p>
+            </div>
+
+            <div class="details-notes" style="margin-bottom: var(--spacing-lg);">
+                <p><strong>Ιδιαίτερες Ανάγκες:</strong></p>
+                <p class="muted">Καμία ιδιαίτερη ανάγκη ή φαρμακευτική αγωγή. Συνηθίζει να πίνει νερό αμέσως μετά το περπάτημα.</p>
+            </div>
+
+            <!-- Owner Info -->
+            <h3 style="border-bottom: 2px solid var(--secondary-color); padding-bottom: 4px; margin-bottom: 12px;">Στοιχεία Ιδιοκτήτη</h3>
+
+            <div class="details-row">
+                <div class="details-field">
+                    <strong>Όνομα:</strong>
+                    <span>Νίκος</span>
+                </div>
+                <div class="details-field">
+                    <strong>Επώνυμο:</strong>
+                    <span>Παπαδόπουλος</span>
+                </div>
+            </div>
+
+            <div class="details-row" style="margin-bottom: var(--spacing-lg);">
+                <div class="details-field">
+                    <strong>Τηλέφωνο:</strong>
+                    <span>697 123 4567</span>
+                </div>
+                <div class="details-field">
+                    <strong>Email:</strong>
+                    <span>nikos.papadopoulos@email.com</span>
+                </div>
+            </div>
+
+            <!-- 6. Price and Booking -->
+            <form style="border-top: 1px solid var(--secondary-color); padding-top: var(--spacing-md); display: flex; justify-content: flex-end; align-items: center; gap: var(--spacing-md); flex-wrap: wrap;">
+                <div style="display: flex; align-items: center; gap: 8px;">
+                    <label for="price-offer" style="margin-bottom: 0;">Τιμή (€):</label>
+                    <input type="number" id="price-offer" name="price_offer" placeholder="π.χ. 15" style="width: 110px; padding: 6px 10px; font-weight: bold; text-align: center;" required>
+                </div>
+
+                <button type="submit" class="btn btn-primary badge" style="padding: 10px 28px; font-size: 1rem; font-weight: bold;">
+                    Book
+                </button>
+            </form>
+
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        &copy; 2026 PetBuddy
+    </footer>
+
+</body>
+</html>
