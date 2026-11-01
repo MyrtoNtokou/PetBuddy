@@ -22,7 +22,7 @@ header {
     text-decoration: none;
 }
 
-/* Pet Buddy */
+/* Pet Buddy Logo */
 .logo {
     color: var(--primary-color);
     font-size: 1.5rem;
@@ -125,7 +125,6 @@ select.filter-chip {
     font-family: var(--font-family);
     border-radius: var(--radius-full);
     
-    /* Αχνό πορτοκαλί με σκούρο πορτοκαλί περίγραμμα */
     background-color: rgba(253, 105, 31, 0.12);
     border: 1.5px solid var(--primary-color);
     color: var(--text-dark);
@@ -142,7 +141,6 @@ select.filter-chip:hover {
     background-color: rgba(253, 105, 31, 0.22);
 }
 
-/* Επιλεγμένο bubble: πιο έντονο πορτοκαλί */
 .filter-chip.active {
     background-color: rgba(253, 105, 31, 0.45);
     border-color: #d85210;
@@ -269,7 +267,7 @@ tr:hover {
     color: var(--white);
 }
 
-/* ADS GRID & INDEPENDENT COMPACT CARD */
+/* ADS GRID & COMPACT CARD */
 .ads-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -285,7 +283,6 @@ tr:hover {
     justify-content: space-between;
 }
 
-/* Επάνω μέρος: σταθερό τετράγωνο αριστερά που δεν αυξομειώνει την κάρτα */
 .ad-header-row {
     display: flex;
     gap: var(--spacing-md);
@@ -293,12 +290,12 @@ tr:hover {
 }
 
 .ad-fixed-photo {
-    width: 110px;           /* Σταθερό ενδιάμεσο μέγεθος */
-    height: 110px;          /* Σταθερό ύψος */
-    aspect-ratio: 1 / 1;    /* Πάντα τετράγωνο */
+    width: 110px;
+    height: 110px;
+    aspect-ratio: 1 / 1;
     object-fit: cover;
     border-radius: var(--radius-sm);
-    flex-shrink: 0;         /* Δεν επηρεάζει ούτε επηρεάζεται από το layout */
+    flex-shrink: 0;
 }
 
 .ad-summary {
@@ -353,6 +350,7 @@ footer {
     color: #ffc107;
     font-size: 20px;
 }
+
 
 /* FOR MOBILE */
 @media (max-width: 600px) {
