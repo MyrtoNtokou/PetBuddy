@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PetBuddy - Διαχείριση Αγγελιών</title>
+
+    
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/components.css">
+</head>
+<body>
+
+    <!-- HEADER -->
+    <header>
+        <div class="logo">🐾 PetBuddy</div>
+        <nav>
+            <a href="#" id="navCreate" onclick="switchTab('create'); return false;" style="color: var(--primary-color); font-weight: bold;">➕ Δημιουργία Αγγελίας</a>
+            <a href="#" id="navMyAds" onclick="switchTab('myAds'); return false;">📋 Οι Αγγελίες μου</a>
+            <a href="login.html">Αποσύνδεση</a>
+        </nav>
+    </header>
+
+    <div class="container" style="margin-top: var(--spacing-lg);">
+        
+        <!-- ΤΑΒ 1: ΔΗΜΙΟΥΡΓΙΑ ΑΓΓΕΛΙΑΣ -->
+        <div id="tabCreate">
+            <h2>Νέα Αγγελία Φροντίδας Σκύλου</h2>
+            <p class="muted">Συμπληρώστε τα στοιχεία της αγγελίας σας.</p>
+            
+            <!-- Alert με τις κλάσεις .alert .alert-success του components.css -->
+            <div id="successAlert" class="alert alert-success" style="display: none;">
+                Η αγγελία σας δημιουργήθηκε με επιτυχία και δημοσιεύτηκε!
+            </div>
+
+            
+            <div class="card">
+                <form id="adForm">
+                    
+                    <div class="form-group">
+                        <label for="dogSelect">1. Επιλογή Κατοικιδίου</label>
+                        <select id="dogSelect" required>
+                            <option value="">-- Επιλέξτε τον σκύλο σας --</option>
+                            <option value="Ρεξ (Golden Retriever)">🐶 Ρεξ (Golden Retriever, 3 ετών)</option>
+                            <option value="Λούνα (Ημίαιμο)">🐕 Λούνα (Ημίαιμο, 1 έτους)</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="serviceType">2. Τύπος Υπηρεσίας</label>
+                        <select id="serviceType" onchange="toggleEndDate()" required>
+                            <option value="WALKING">🦮 Αγγελία Βόλτας (Walking)</option>
+                            <option value="BOARDING">🏠 Αγγελία Φιλοξενίας (Boarding)</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="adTitle">Τίτλος Αγγελίας</label>
+                        <input type="text" id="adTitle" placeholder="π.χ. Απογευματινή βόλτα στο πάρκο" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="cityArea">Περιοχή / Δήμος</label>
+                        <input type="text" id="cityArea" placeholder="π.χ. Κολωνάκι, Αθήνα" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="adDate" id="startDateLabel">Ημερομηνία Βόλτας</label>
+                        <input type="date" id="adDate" required>
+                    </div>
+                   
+                    <div class="form-group" id="endDateGroup" style="display: none;">
+                        <label for="endDate">Ημερομηνία Λήξης Φιλοξενίας (Έως)</label>
+                        <input type="date" id="endDate">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="notes">Περιγραφή / Οδηγίες</label>
+                        <textarea id="notes" rows="3" placeholder="Ειδικές ανάγκες, χαρακτήρας σκύλου, ώρες..."></textarea>
+                    </div>
+
+                    <div class="button-group">
+                        <button type="submit" class="btn btn-primary" style="width: 100%;">Δημοσίευση Αγγελίας</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!--  ΤΑΒ 2: ΟΙ ΑΓΓΕΛΙΕΣ ΜΟΥ  -->
+        <div id="tabMyAds" style="display: none;">
+            <h2>Οι Αγγελίες μου</h2>
+            <p class="muted">Πατήστε πάνω σε μια αγγελία για να ανοίξουν οι υποψήφιοι Sitters και να κάνετε Αποδοχή ή Απόρριψη.</p>
+            
+            <div id="adsContainer"> </div>
+        </div>
+
+    </div>
+
+    <footer>
+        &copy; 2026 PetBuddy - Applications
+    </footer>
+
+    <script>
+        // Αρχική λίστα αγγελιών στη μνήμη
+        let globalAds = [
+            {
+                id: 1,
+                dog: 'Ρεξ (Golden Retriever)',
+                title: 'Απογευματινή βόλτα στο πάρκο',
+                type: '🦮 Βόλτα',
+                area: 'Κολωνάκι, Αθήνα',
+                date: '2026-11-10',
+                notes: '1 ώρα απογευματινή βόλτα.',
+                status: 'OPEN',
+                expanded: true,
+                applicants: [
+                    { appId: 101, name: 'Μαρία Παπαδοπούλου', exp: '3 έτη',  price: '15€', msg: 'Μένω πολύ κοντά και είμαι διαθέσιμη!', status: 'PENDING' },
+                    { appId: 102, name: 'Νίκος Γεωργίου', exp: '2 έτη', price: '20€', msg: 'Έχω μεγάλη εμπειρία με Golden Retriever.', status: 'PENDING' }
+                ]
+            }
+        ];
+
+        // Εναλλαγή μεταξύ Δημιουργίας Αγγελίας και Αγγελιών μου
+        function switchTab(tabName) {
+            const tabCreate = document.getElementById('tabCreate');
+            const tabMyAds = document.getElementById('tabMyAds');
+            const navCreate = document.getElementById('navCreate');
+            const navMyAds = document.getElementById('navMyAds');
+
+            if (tabName === 'create') {
+                tabCreate.style.display = 'block';
+                tabMyAds.style.display = 'none';
+                navCreate.style.color = 'var(--primary-color)';
+                navCreate.style.fontWeight = 'bold';
+                navMyAds.style.color = 'var(--text-dark)';
+                navMyAds.style.fontWeight = 'normal';
+            } else {
+                tabCreate.style.display = 'none';
+                tabMyAds.style.display = 'block';
+                navMyAds.style.color = 'var(--primary-color)';
+                navMyAds.style.fontWeight = 'bold';
+                navCreate.style.color = 'var(--text-dark)';
+                navCreate.style.fontWeight = 'normal';
+                renderAds();
+            }
+        }
+
+        function toggleEndDate() {
+            const typeVal = document.getElementById('serviceType').value;
+            const endDateGroup = document.getElementById('endDateGroup');
+            const endDateInput = document.getElementById('endDate');
+            const startDateLabel = document.getElementById('startDateLabel');
+
+            if (typeVal === 'BOARDING') {
+                endDateGroup.style.display = 'block';
+                endDateInput.required = true;
+                startDateLabel.textContent = 'Ημερομηνία Έναρξης Φιλοξενίας (Από)';
+            } else {
+                endDateGroup.style.display = 'none';
+                endDateInput.required = false;
+                endDateInput.value = '';
+                startDateLabel.textContent = 'Ημερομηνία Βόλτας';
+            }
+        }
+
+        // Υποβολή φόρμας νέας αγγελίας
+        const adFormElement = document.getElementById('adForm');
+        if (adFormElement) {
+            adFormElement.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                const dogVal = document.getElementById('dogSelect').value;
+                const typeVal = document.getElementById('serviceType').value;
+                const titleVal = document.getElementById('adTitle').value;
+                const areaVal = document.getElementById('cityArea').value;
+                const startDateVal = document.getElementById('adDate').value;
+                const endDateVal = document.getElementById('endDate').value;
+                const dateVal = (typeVal === 'BOARDING' && endDateVal) ? `${startDateVal} έως ${endDateVal}` : startDateVal;
+                const notesVal = document.getElementById('notes').value;
+
+                const newAd = {
+                    id: Date.now(),
+                    dog: dogVal,
+                    title: titleVal,
+                    type: typeVal === 'WALKING' ? '🦮 Βόλτα' : '🏠 Φιλοξενία',
+                    area: areaVal,
+                    date: dateVal,
+                    notes: notesVal || 'Χωρίς ειδικές οδηγίες.',
+                    status: 'OPEN',
+                    expanded: true,
+                    applicants: [
+                        { appId: Date.now() + 1, name: 'Μαρία Παπαδοπούλου', exp: '3 έτη', price: '15€', msg: 'Ενδιαφέρομαι για την αγγελία σας!', status: 'PENDING' }
+                    ]
+                };
+
+                globalAds.unshift(newAd);
+
+                const alertBox = document.getElementById('successAlert');
+                alertBox.style.display = 'block';
+                
+                setTimeout(() => {
+                    alertBox.style.display = 'none';
+                    adFormElement.reset();
+                    toggleEndDate();
+                    switchTab('myAds');
+                }, 700);
+            });
+        }
+
+        // Άνοιγμα / Κλείσιμο λεπτομερειών αγγελίας (όπως στο σχέδιο στο χαρτί: "-> ανοίγουν")
+        function toggleAd(adId) {
+            globalAds = globalAds.map(ad => {
+                if (ad.id === adId) ad.expanded = !ad.expanded;
+                return ad;
+            });
+            renderAds();
+        }
+
+        // Αποδοχή ή Απόρριψη Sitter (Use Case: Δέχεται/Απορρίπτει Sitter)
+        function handleSitterDecision(adId, appId, decision) {
+            globalAds = globalAds.map(ad => {
+                if (ad.id === adId) {
+                    if (decision === 'ACCEPTED') {
+                        ad.status = 'CLOSED';
+                    }
+                    ad.applicants = ad.applicants.map(app => {
+                        if (app.appId === appId) {
+                            app.status = decision;
+                        } else if (decision === 'ACCEPTED' && app.status === 'PENDING') {
+                            app.status = 'REJECTED';
+                        }
+                        return app;
+                    });
+                }
+                return ad;
+            });
+            renderAds();
+        }
+
+        // Σχεδίαση αγγελιών με χρήση .card, .badge, table, .btn-accept, .btn-danger
+        function renderAds() {
+            const container = document.getElementById('adsContainer');
+            if (!container) return;
+
+            container.innerHTML = '';
+            globalAds.forEach(ad => {
+                const statusBadge = ad.status === 'OPEN'
+                    ? `<span class="badge badge-accepted">Ενεργή (Open)</span>`
+                    : `<span class="badge badge-danger">Έκλεισε (Closed)</span>`;
+
+                let rowsHtml = '';
+                ad.applicants.forEach(app => {
+                    let buttonsHtml = '';
+                    if (app.status === 'PENDING') {
+                        buttonsHtml = `
+                            <div class="button-group" style="justify-content: center; margin: 0;">
+                                <button class="btn btn-accept" onclick="handleSitterDecision(${ad.id}, ${app.appId}, 'ACCEPTED')">✅ Αποδοχή</button>
+                                <button class="btn btn-danger" onclick="handleSitterDecision(${ad.id}, ${app.appId}, 'REJECTED')">❌ Απόρριψη</button>
+                            </div>
+                        `;
+                    } else if (app.status === 'ACCEPTED') {
+                        buttonsHtml = `<span class="badge badge-accepted">Επιλέχθηκε</span>`;
+                    } else {
+                        buttonsHtml = `<span class="badge badge-danger">Απορρίφθηκε</span>`;
+                    }
+
+                    rowsHtml += `
+                        <tr>
+                            <td><strong>${app.name}</strong></td>
+                            <td>${app.exp}</td>
+                            <td><strong>${app.price}</strong></td>
+                            <td>${app.msg}</td>
+                            <td>${buttonsHtml}</td>
+                        </tr>
+                    `;
+                });
+
+                const expandedContent = ad.expanded ? `
+                    <hr style="border: 0; border-top: 1px solid var(--secondary-color); margin: var(--spacing-md) 0;">
+                    <p><strong>Κατοικίδιο:</strong> ${ad.dog} | <strong>Υπηρεσία:</strong> ${ad.type} | <strong>Ημ/νία:</strong> ${ad.date}</p>
+                    <p class="muted">${ad.notes}</p>
+                    
+                    <h4>👥 Υποψήφιοι Pet Sitters που εκδήλωσαν ενδιαφέρον:</h4>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Sitter</th>
+                                <th>Εμπειρία</th>
+                                <th>Τιμή</th>
+                                <th>Μήνυμα</th>
+                                <th>Ενέργεια</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            ${rowsHtml}
+                        </tbody>
+                    </table>
+                ` : '';
+
+                container.innerHTML += `
+                    <div class="card" style="margin-bottom: var(--spacing-md);">
+                        <div onclick="toggleAd(${ad.id})" style="display: flex; justify-content: space-between; align-items: center; cursor: pointer;">
+                            <div>
+                                <h3 style="margin: 0 0 8px 0;">${ad.title}</h3>
+                                <span class="muted">📍 Περιοχή: <strong>${ad.area}</strong></span>
+                            </div>
+                            <div>
+                                ${statusBadge}
+                                <span style="margin-left: 12px; font-weight: bold;">${ad.expanded ? '▲' : '▼'}</span>
+                            </div>
+                        </div>
+                        ${expandedContent}
+                    </div>
+                `;
+            });
+        }
+    </script>
+</body>
+</html>
