@@ -472,20 +472,17 @@ footer {
     color: var(--primary-color);
 }
 
-/* Διαχωριστική γραμμή πριν την αποσύνδεση */
 .profile-dropdown .dropdown-divider {
     height: 1px;
     background-color: var(--secondary-color);
     margin: var(--spacing-xs) 0;
 }
 
-/* Κόκκινη ένδειξη κινδύνου στο hover της αποσύνδεσης */
 .profile-dropdown a.logout-link:hover {
     background-color: rgba(220, 53, 69, 0.08);
     color: var(--danger);
 }
 
-/* Εμφάνιση κατά το hover */
 .profile-container:hover .profile-dropdown {
     display: block;
 }

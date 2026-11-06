@@ -3,17 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PetBuddy | Φιλοξενία & Βόλτα Σκύλων - Σύνδεση</title>
+    <title>PetBuddy - Σύνδεση & Εγγραφή</title>
 
+    <!-- Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-    <link rel="stylesheet" href="../css/style.css">
+    <!-- CSS Variables & Components -->
     <link rel="stylesheet" href="../css/base.css">
     <link rel="stylesheet" href="../css/components.css">
+    <link rel="stylesheet" href="../css/style.css">
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">    
 
     <style>
-        * { box-sizing: border-box; }
-        .hidden { display: none !important; }
-        
         .auth-layout {
             display: grid;
             grid-template-columns: 1fr 1.3fr;
@@ -30,7 +34,7 @@
             box-shadow: var(--box-shadow);
         }
 
-        .brand-card h1, .brand-card h2, .brand-card h3 {
+        .brand-card h2, .brand-card h3 {
             color: var(--white);
             margin-top: 0;
         }
@@ -49,6 +53,52 @@
             gap: var(--spacing-md);
         }
 
+        /* Radio buttons to be able to change tabs */
+        .tab-radio {
+            display: none;
+        }
+
+        .tab-controls {
+            display: flex;
+            gap: var(--spacing-sm);
+            margin-bottom: var(--spacing-md);
+        }
+
+        .tab-label {
+            flex: 1;
+            text-align: center;
+            padding: var(--spacing-sm) var(--spacing-md);
+            border-radius: var(--radius-md);
+            font-size: 1rem;
+            cursor: pointer;
+            background-color: var(--secondary-color);
+            color: var(--text-dark);
+            transition: all 0.2s ease;
+            user-select: none;
+        }
+
+        #pane-login, #pane-signup {
+            display: none;
+        }
+
+        #radio-login:checked ~ .tab-controls label[for="radio-login"] {
+            background-color: var(--primary-color);
+            color: var(--white);
+            font-weight: bold;
+        }
+        #radio-login:checked ~ #pane-login {
+            display: block;
+        }
+
+        #radio-signup:checked ~ .tab-controls label[for="radio-signup"] {
+            background-color: var(--primary-color);
+            color: var(--white);
+            font-weight: bold;
+        }
+        #radio-signup:checked ~ #pane-signup {
+            display: block;
+        }
+
         @media (max-width: 768px) {
             .auth-layout, .form-row {
                 grid-template-columns: 1fr;
@@ -58,20 +108,20 @@
 </head>
 <body>
 
-
+    <!-- Header -->
     <header>
-        <div class="logo">🐾 PetBuddy</div>
-        <nav>
-            <a href="index.html">Αρχική</a>
-            <a href="login.html">Σύνδεση / Εγγραφή</a>
-        </nav>
+        <a href="browser.html" class="logo">
+            <span class="material-symbols-outlined">pets</span>
+            <span>PetBuddy</span>
+        </a>
     </header>
 
-    <div class="container">
+    <div class="container" style="max-width: 1000px; margin-bottom: var(--spacing-lg);">
         <div class="auth-layout">
 
+            <!-- left card: Pet Buddy details -->
             <div class="brand-card">
-                <h2>🐾 PetBuddy</h2>
+                <h2>PetBuddy</h2>
                 <p><strong>Ο καλύτερός σου φίλος, στα πιο έμπιστα χέρια.</strong></p>
                 <p>Με έναν ενιαίο λογαριασμό μπορείς να δημοσιεύσεις αγγελίες για <strong>φιλοξενία</strong> ή <strong>βόλτα</strong> του κατοικιδίου σου, αλλά και να εκδηλώσεις ενδιαφέρον ως φροντιστής (Pet Sitter) σε αγγελίες άλλων μελών!</p>
 
@@ -82,114 +132,89 @@
                 <p style="font-size: 0.9rem; margin: 0;">🛡️ Ασφαλής Κοινότητα Κατοικιδίων</p>
             </div>
 
-    
+            <!-- Right card -->
             <div class="card">
                 
-                <div id="auth-forms-wrapper">
-                    <!-- Κουμπιά Εναλλαγής Σύνδεσης / Εγγραφής  -->
-                    <div class="button-group" style="margin-top: 0;">
-                        <button type="button" id="tab-login" class="btn btn-primary" style="flex: 1;" onclick="switchMode('login')">
-                            Σύνδεση
-                        </button>
-                        <button type="button" id="tab-signup" class="btn" style="flex: 1; background-color: var(--secondary-color);" onclick="switchMode('signup')">
-                            Εγγραφή
-                        </button>
-                    </div>
+                <!-- 1. Hidden radio buttons -->
+                <input type="radio" name="auth_tab" id="radio-login" class="tab-radio" checked>
+                <input type="radio" name="auth_tab" id="radio-signup" class="tab-radio">
 
-                    <!--  1. ΦΟΡΜΑ ΣΥΝΔΕΣΗΣ (LOGIN)  -->
-                    <form id="form-login" onsubmit="handleLogin(event)">
-                        <h3>Καλώς ήρθες ξανά!</h3>
-                        <p class="muted">Συμπλήρωσε το όνομα χρήστη και τον κωδικό σου για είσοδο.</p>
-
-                        <div class="form-group">
-                            <label for="login-username">Όνομα Χρήστη *</label>
-                            <input type="text" id="login-username" name="username" required placeholder="π.χ. giannis_p">
-                        </div>
-
-                        <div class="form-group">
-                            <label for="login-password">Κωδικός Πρόσβασης *</label>
-                            <input type="password" id="login-password" name="password" required placeholder="••••••••">
-                        </div>
-
-                        <div class="button-group">
-                            <button type="submit" class="btn btn-primary" style="width: 100%;">Είσοδος στην Εφαρμογή</button>
-                        </div>
-                    </form>
-
-                    <!--  2. ΦΟΡΜΑ ΕΓΓΡΑΦΗΣ -->
-                    <form id="form-signup" onsubmit="handleSignup(event)" class="hidden">
-                        <h3>Δημιουργία Λογαριασμού</h3>
-                        <p class="muted">Συμπλήρωσε τα στοιχεία σου για να γίνεις μέλος του PetBuddy.</p>
-
-                        <div class="form-row">
-                            <div class="form-group">
-                                <label for="signup-firstname">Όνομα *</label>
-                                <input type="text" id="signup-firstname" required placeholder="π.χ. Νίκος">
-                            </div>
-                            <div class="form-group">
-                                <label for="signup-lastname">Επώνυμο *</label>
-                                <input type="text" id="signup-lastname" required placeholder="π.χ. Παπαδόπουλος">
-                            </div>
-                        </div>
-
-                        <div class="form-row">
-                            <div class="form-group">
-                                <label for="signup-username">Username *</label>
-                                <input type="text" id="signup-username" required placeholder="π.χ. nikos_p">
-                            </div>
-                            <div class="form-group">
-                                <label for="signup-phone">Τηλέφωνο *</label>
-                                <input type="tel" id="signup-phone" required placeholder="π.χ. 6971234567">
-                            </div>
-                        </div>
-
-                        <div class="form-row">
-                            <div class="form-group">
-                                <label for="signup-email">Email *</label>
-                                <input type="email" id="signup-email" required placeholder="nikos@example.gr">
-                            </div>
-                            <div class="form-group">
-                                <label for="signup-password">Κωδικός Πρόσβασης *</label>
-                                <input type="password" id="signup-password" required minlength="6" placeholder="Τουλάχιστον 6 χαρακτήρες">
-                            </div>
-                        </div>
-
-                        <div class="form-row">
-                            <div class="form-group">
-                                <label for="signup-address">Διεύθυνση / Περιοχή *</label>
-                                <input type="text" id="signup-address" required placeholder="π.χ. Κολωνάκι, Αθήνα">
-                            </div>
-                            <div class="form-group">
-                                <label for="signup-exp">Έτη Εμπειρίας με Κατοικίδια</label>
-                                <input type="number" id="signup-exp" min="0" value="0">
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="signup-bio">Σύντομο Βιογραφικό </label>
-                            <textarea id="signup-bio" rows="2" placeholder="Περίγραψε την εμπειρία σου με σκύλους και τον χώρο σου..."></textarea>
-                        </div>
-
-                        <div class="button-group">
-                            <button type="submit" class="btn btn-primary" style="width: 100%;">Ολοκλήρωση Εγγραφής</button>
-                        </div>
-                    </form>
+                <!-- 2. Κουμπιά (Labels) -->
+                <div class="tab-controls">
+                    <label for="radio-login" class="tab-label">Σύνδεση</label>
+                    <label for="radio-signup" class="tab-label">Εγγραφή</label>
                 </div>
 
-                <!--  3. ΚΑΤΑΣΤΑΣΗ ΣΥΝΔΕΔΕΜΕΝΟΥ ΧΡΗΣΤΗ  -->
-                <div id="logged-in-view" class="hidden" style="text-align: center;">
-                    <span class="badge badge-accepted">🐾 Μέλος PetBuddy</span>
-                    <h2 id="welcome-title" style="margin-top: var(--spacing-sm);">Καλώς ήρθες!</h2>
-                    <p class="muted">Η σύνδεση ολοκληρώθηκε. Μπορείς να δημιουργήσεις αγγελία για το κατοικίδιό σου ή να αναζητήσεις αγγελίες άλλων μελών για να εκδηλώσεις ενδιαφέρον.</p>
+                <!-- 3. Περιεχόμενο Σύνδεσης -->
+                <div id="pane-login">
+                    <h3 style="color: var(--primary-color); margin-top: 0;">Καλώς ήρθες ξανά!</h3>
+                    <p class="muted">Συμπλήρωσε το όνομα χρήστη και τον κωδικό σου για είσοδο.</p>
 
-                    <div class="button-group" style="justify-content: center;">
-                        <a href="create-ad.html" class="btn btn-primary" style="text-decoration:none;">➕ Διαχείριση / Νέα Αγγελία</a>
-                        <a href="sitter-ads.html" class="btn" style="background: var(--secondary-color); color: var(--text-dark); text-decoration:none;">🔍 Αναζήτηση Αγγελιών</a>
-                        <a href="profile.html" class="btn" style="background: var(--secondary-color); color: var(--text-dark); text-decoration:none;">👤 Το Προφίλ μου</a>
+                    <div class="form-group">
+                        <label for="login-username">Όνομα Χρήστη</label>
+                        <input type="text" id="login-username" value="nikos_p" placeholder="π.χ. nikos_p">
                     </div>
 
-                    <hr style="border: 0; border-top: 1px solid var(--secondary-color); margin: var(--spacing-md) 0;">
-                    <button type="button" class="btn btn-danger" onclick="logoutDemo()">Αποσύνδεση</button>
+                    <div class="form-group">
+                        <label for="login-password">Κωδικός Πρόσβασης</label>
+                        <input type="password" id="login-password" value="123456">
+                    </div>
+
+                    <div class="button-group" style="margin-top: var(--spacing-md); margin-bottom: 0;">
+                        <a href="browser.html" class="btn btn-primary" style="width: 100%; text-align: center; text-decoration: none; display: block; font-weight: bold;">
+                            Είσοδος στην Εφαρμογή
+                        </a>
+                    </div>
+                </div>
+
+                <!-- 4. Περιεχόμενο Εγγραφής -->
+                <div id="pane-signup">
+                    <h3 style="color: var(--primary-color); margin-top: 0;">Δημιουργία Λογαριασμού</h3>
+                    <p class="muted">Συμπλήρωσε τα στοιχεία σου για να γίνεις μέλος του PetBuddy.</p>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="signup-firstname">Όνομα</label>
+                            <input type="text" id="signup-firstname" placeholder="π.χ. Νίκος">
+                        </div>
+                        <div class="form-group">
+                            <label for="signup-lastname">Επώνυμο</label>
+                            <input type="text" id="signup-lastname" placeholder="π.χ. Παπαδόπουλος">
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="signup-username">Username</label>
+                            <input type="text" id="signup-username" placeholder="π.χ. nikos_p">
+                        </div>
+                        <div class="form-group">
+                            <label for="signup-phone">Τηλέφωνο</label>
+                            <input type="tel" id="signup-phone" placeholder="π.χ. 6971234567">
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="signup-email">Email</label>
+                            <input type="email" id="signup-email" placeholder="nikos@example.gr">
+                        </div>
+                        <div class="form-group">
+                            <label for="signup-area">Περιοχή</label>
+                            <input type="text" id="signup-area" placeholder="π.χ. Παγκράτι, Αθήνα">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="signup-password">Κωδικός Πρόσβασης</label>
+                        <input type="password" id="signup-password" placeholder="Τουλάχιστον 6 χαρακτήρες">
+                    </div>
+
+                    <div class="button-group" style="margin-top: var(--spacing-md); margin-bottom: 0;">
+                        <a href="profile.html" class="btn btn-primary" style="width: 100%; text-align: center; text-decoration: none; display: block; font-weight: bold;">
+                            Ολοκλήρωση Εγγραφής
+                        </a>
+                    </div>
                 </div>
 
             </div>
@@ -197,61 +222,8 @@
     </div>
 
     <footer>
-        &copy; 2026 PetBuddy - Applications
+        &copy; 2026 PetBuddy
     </footer>
 
-    <script>
-        function switchMode(mode) {
-            const loginForm = document.getElementById('form-login');
-            const signupForm = document.getElementById('form-signup');
-            const tabLogin = document.getElementById('tab-login');
-            const tabSignup = document.getElementById('tab-signup');
-
-            if (mode === 'login') {
-                loginForm.classList.remove('hidden');
-                signupForm.classList.add('hidden');
-                tabLogin.className = "btn btn-primary";
-                tabLogin.style.backgroundColor = "";
-                tabSignup.className = "btn";
-                tabSignup.style.backgroundColor = "var(--secondary-color)";
-            } else {
-                loginForm.classList.add('hidden');
-                signupForm.classList.remove('hidden');
-                tabSignup.className = "btn btn-primary";
-                tabSignup.style.backgroundColor = "";
-                tabLogin.className = "btn";
-                tabLogin.style.backgroundColor = "var(--secondary-color)";
-            }
-        }
-
-        function handleLogin(event) {
-            event.preventDefault();
-            const username = document.getElementById('login-username').value.trim();
-            showLoggedInState(username, false);
-        }
-
-        function handleSignup(event) {
-            event.preventDefault();
-            const firstName = document.getElementById('signup-firstname').value.trim();
-            const username = document.getElementById('signup-username').value.trim();
-            showLoggedInState(`${firstName} (@${username})`, true);
-        }
-
-        function showLoggedInState(displayName, isNewAccount) {
-            document.getElementById('auth-forms-wrapper').classList.add('hidden');
-            const loggedInView = document.getElementById('logged-in-view');
-            loggedInView.classList.remove('hidden');
-
-            const titleEl = document.getElementById('welcome-title');
-            titleEl.textContent = isNewAccount
-                ? `Καλώς ήρθες στο PetBuddy, ${displayName}!`
-                : `Καλώς ήρθες ξανά, ${displayName}!`;
-        }
-
-        function logoutDemo() {
-            document.getElementById('logged-in-view').classList.add('hidden');
-            document.getElementById('auth-forms-wrapper').classList.remove('hidden');
-        }
-    </script>
 </body>
 </html>
