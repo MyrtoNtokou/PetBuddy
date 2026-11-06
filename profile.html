@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PetBuddy | Το Προφίλ μου</title>
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/components.css">
+
+    <style>
+        * { box-sizing: border-box; }
+        .hidden { display: none !important; }
+        
+        .profile-container {
+            max-width: 800px;
+            margin: var(--spacing-lg) auto;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--spacing-md);
+        }
+
+        .alert-success {
+            background-color: #d4edda;
+            color: #155724;
+            padding: var(--spacing-sm);
+            border-radius: var(--radius-sm);
+            margin-bottom: var(--spacing-md);
+            border: 1px solid #c3e6cb;
+            text-align: center;
+        }
+
+        @media (max-width: 768px) {
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">🐾 PetBuddy</div>
+        <nav>
+            <a href="index.html">Αρχική</a>
+            <a href="create-ad.html">Διαχείριση Αγγελιών</a>
+            <a href="profile.html" style="font-weight: bold;">Προφίλ</a>
+            <a href="login.html" class="text-danger">Αποσύνδεση</a>
+        </nav>
+    </header>
+
+    <div class="container profile-container">
+        <div class="card">
+            <h2>👤 Διαχείριση Προφίλ</h2>
+            <p class="muted">Ενημέρωσε τα προσωπικά σου στοιχεία και την εμπειρία σου.</p>
+
+            <div id="success-message" class="alert-success hidden">
+                Οι αλλαγές στο προφίλ σου αποθηκεύτηκαν με επιτυχία!
+            </div>
+
+            <form id="form-profile" onsubmit="saveProfile(event)">
+                
+                <h4 style="margin-bottom: var(--spacing-sm); border-bottom: 1px solid #eee; padding-bottom: 5px;">Προσωπικά Στοιχεία</h4>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="profile-firstname">Όνομα *</label>
+                        <input type="text" id="profile-firstname" required value="Νίκος">
+                    </div>
+                    <div class="form-group">
+                        <label for="profile-lastname">Επώνυμο *</label>
+                        <input type="text" id="profile-lastname" required value="Παπαδόπουλος">
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="profile-username">Username</label>
+                        <input type="text" id="profile-username" value="nikos_p" disabled title="Το Username δεν μπορεί να αλλάξει">
+                    </div>
+                    <div class="form-group">
+                        <label for="profile-phone">Τηλέφωνο *</label>
+                        <input type="tel" id="profile-phone" required value="6971234567">
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="profile-email">Email *</label>
+                        <input type="email" id="profile-email" required value="nikos@example.gr">
+                    </div>
+                    <div class="form-group">
+                        <label for="profile-password">Νέος Κωδικός Πρόσβασης</label>
+                        <input type="password" id="profile-password" minlength="6" placeholder="Άφησέ το κενό για διατήρηση">
+                    </div>
+                </div>
+
+                <h4 style="margin-top: var(--spacing-md); margin-bottom: var(--spacing-sm); border-bottom: 1px solid #eee; padding-bottom: 5px;">Στοιχεία Pet Sitter</h4>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="profile-address">Διεύθυνση / Περιοχή *</label>
+                        <input type="text" id="profile-address" required value="Κολωνάκι, Αθήνα">
+                    </div>
+                    <div class="form-group">
+                        <label for="profile-exp">Έτη Εμπειρίας με Κατοικίδια</label>
+                        <input type="number" id="profile-exp" min="0" value="3">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="profile-bio">Σύντομο Βιογραφικό</label>
+                    <textarea id="profile-bio" rows="4">Μεγάλωσα με σκυλιά από μικρή ηλικία και έχω εμπειρία στη φιλοξενία μεσαίων και μεγάλων φυλών. Το διαμέρισμά μου έχει ασφαλές μπαλκόνι και βρίσκεται κοντά σε πάρκο.</textarea>
+                </div>
+
+                <div class="button-group" style="justify-content: flex-end; margin-top: var(--spacing-md);">
+                    <button type="button" class="btn" style="background-color: var(--secondary-color);" onclick="window.location.href='index.html'">Ακύρωση</button>
+                    <button type="submit" class="btn btn-primary">Αποθήκευση Αλλαγών</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <footer>
+        &copy; 2026 PetBuddy - Applications
+    </footer>
+
+    <script>
+        function saveProfile(event) {
+            event.preventDefault();
+            const successMsg = document.getElementById('success-message');
+            successMsg.classList.remove('hidden');
+            setTimeout(() => { successMsg.classList.add('hidden'); }, 3000);
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+    </script>
+</body>
+</html>
