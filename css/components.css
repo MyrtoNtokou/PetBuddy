@@ -102,11 +102,19 @@ button, .btn {
 .btn-danger {
     background-color: var(--danger);
     color: var(--white);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .btn-accept {
     background-color: var(--accept);
     color: var(--white);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.btn-danger:hover,
+.btn-accept:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--box-shadow);
 }
 
 .btn:disabled {
