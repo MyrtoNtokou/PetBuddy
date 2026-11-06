@@ -35,27 +35,43 @@
 
         <!-- Main Menu -->
         <nav>
-            <a href="browser.html" class="nav-link">
+            <a href="browser.html" class="nav-link active">
                 <span class="material-symbols-outlined">search</span>
                 <span>Αγγελίες</span>
             </a>
 
-            <a href="#" class="nav-link">
+            <a href="create-ad.html" class="nav-link">
                 <span class="material-symbols-outlined">add_circle</span>
                 <span>Νέα Αγγελία</span>
             </a>
 
-            <a href="requests.html" class="nav-link active">
+            <a href="requests.html" class="nav-link">
                 <span class="material-symbols-outlined">mail</span>
                 <span>Inbox</span>
             </a>
         </nav>
 
-        <!-- Profile -->
-        <div>
-            <a href="#" class="profile-btn" title="Το προφίλ μου">
+        <!-- Profile Menu -->
+        <div class="profile-container">
+            <a href="javascript:void(0)" class="profile-btn" title="Λογαριασμός">
                 <span class="material-symbols-outlined">account_circle</span>
             </a>
+
+            <div class="profile-dropdown">
+                <!-- 1. Go to profile -->
+                <a href="profile.html">
+                    <span class="material-symbols-outlined" style="font-size: 1.15rem;">person</span>
+                    <span>Το προφίλ μου</span>
+                </a>
+
+                <div class="dropdown-divider"></div>
+
+                <!-- 2. Logout -->
+                <a href="login.html" class="logout-link">
+                    <span class="material-symbols-outlined" style="font-size: 1.15rem;">logout</span>
+                    <span>Αποσύνδεση</span>
+                </a>
+            </div>
         </div>
     </header>
 

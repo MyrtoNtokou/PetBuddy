@@ -17,7 +17,7 @@
 
 <body>
 
-    <!-- Header -->
+<!-- Header -->
     <header>
         <!-- Logo -->
         <a href="browser.html" class="logo">
@@ -25,14 +25,14 @@
             <span>PetBuddy</span>
         </a>
 
-        <!-- Main menu -->
+        <!-- Main Menu -->
         <nav>
             <a href="browser.html" class="nav-link active">
                 <span class="material-symbols-outlined">search</span>
                 <span>Αγγελίες</span>
             </a>
 
-            <a href="#" class="nav-link">
+            <a href="create-ad.html" class="nav-link">
                 <span class="material-symbols-outlined">add_circle</span>
                 <span>Νέα Αγγελία</span>
             </a>
@@ -43,11 +43,27 @@
             </a>
         </nav>
 
-        <!-- Profile -->
-        <div>
-            <a href="#" class="profile-btn" title="Το προφίλ μου">
+        <!-- Profile Menu -->
+        <div class="profile-container">
+            <a href="javascript:void(0)" class="profile-btn" title="Λογαριασμός">
                 <span class="material-symbols-outlined">account_circle</span>
             </a>
+
+            <div class="profile-dropdown">
+                <!-- 1. Go to profile -->
+                <a href="profile.html">
+                    <span class="material-symbols-outlined" style="font-size: 1.15rem;">person</span>
+                    <span>Το προφίλ μου</span>
+                </a>
+
+                <div class="dropdown-divider"></div>
+
+                <!-- 2. Logout -->
+                <a href="login.html" class="logout-link">
+                    <span class="material-symbols-outlined" style="font-size: 1.15rem;">logout</span>
+                    <span>Αποσύνδεση</span>
+                </a>
+            </div>
         </div>
     </header>
 
@@ -138,7 +154,7 @@
                     <p class="ad-description">Αναζητούμε φιλοξενία σε ήσυχο σπίτι για το συγκεκριμένο πενθήμερο. Είναι εμβολιασμένη, ανεξάρτητη και καθαρή.</p>
                 </div>
                 <div class="button-group" style="margin-top: var(--spacing-sm); margin-bottom: 0; justify-content: flex-end;">
-                    <a href="#" target="_blank" class="profile-btn" title="Προβολή λεπτομερειών" style="padding: 6px 10px;">
+                    <a href="selectedAdd.html" target="_blank" class="profile-btn" title="Προβολή λεπτομερειών" style="padding: 6px 10px;">
                         <span class="material-symbols-outlined">arrow_forward</span>
                     </a>
                 </div>
@@ -158,7 +174,7 @@
                     <p class="ad-description">Αναζητούμε άτομο για πρωινή και απογευματινή βόλτα. Είναι μικρόσωμος, πολύ κοινωνικός και αγαπάει τα χάδια.</p>
                 </div>
                 <div class="button-group" style="margin-top: var(--spacing-sm); margin-bottom: 0; justify-content: flex-end;">
-                    <a href="#" target="_blank" class="profile-btn" title="Προβολή λεπτομερειών" style="padding: 6px 10px;">
+                    <a href="selectedAdd.html" target="_blank" class="profile-btn" title="Προβολή λεπτομερειών" style="padding: 6px 10px;">
                         <span class="material-symbols-outlined">arrow_forward</span>
                     </a>
                 </div>
@@ -178,7 +194,7 @@
                     <p class="ad-description">Φιλοξενία για το συγκεκριμένο τριήμερο, ιδανικά σε χώρο με κήπο καθώς είναι δραστήρια και έχει ενέργεια.</p>
                 </div>
                 <div class="button-group" style="margin-top: var(--spacing-sm); margin-bottom: 0; justify-content: flex-end;">
-                    <a href="#" target="_blank" class="profile-btn" title="Προβολή λεπτομερειών" style="padding: 6px 10px;">
+                    <a href="selectedAdd.html" target="_blank" class="profile-btn" title="Προβολή λεπτομερειών" style="padding: 6px 10px;">
                         <span class="material-symbols-outlined">arrow_forward</span>
                     </a>
                 </div>
