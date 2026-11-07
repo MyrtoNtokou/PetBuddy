@@ -19,11 +19,11 @@
 
     <style>
         /* CSS for tabs */
-        .inbox-tab-radio {
+        .applications.html-tab-radio {
             display: none;
         }
 
-        .inbox-nav-controls {
+        .applications.html-nav-controls {
             display: flex;
             gap: var(--spacing-lg);
             margin-top: var(--spacing-md);
@@ -31,7 +31,7 @@
             border-bottom: 2px solid var(--secondary-color);
         }
 
-        .inbox-tab-label {
+        .applications.html-tab-label {
             padding: var(--spacing-sm) 4px;
             font-size: 1.05rem;
             font-weight: 500;
@@ -47,7 +47,7 @@
             gap: 8px;
         }
 
-        .inbox-tab-label:hover {
+        .applications.html-tab-label:hover {
             color: var(--primary-color);
         }
 
@@ -56,7 +56,7 @@
         }
 
         /* Pet owner tab - active */
-        #tab-owner:checked ~ .inbox-nav-controls label[for="tab-owner"] {
+        #tab-owner:checked ~ .applications.html-nav-controls label[for="tab-owner"] {
             color: var(--primary-color);
             border-bottom-color: var(--primary-color);
             font-weight: bold;
@@ -66,7 +66,7 @@
         }
 
         /* Pet sitter tab - active */
-        #tab-sitter:checked ~ .inbox-nav-controls label[for="tab-sitter"] {
+        #tab-sitter:checked ~ .applications.html-nav-controls label[for="tab-sitter"] {
             color: var(--primary-color);
             border-bottom-color: var(--primary-color);
             font-weight: bold;
@@ -95,7 +95,7 @@
                 <span>Νέα Αγγελία</span>
             </a>
  
-            <a href="inbox.html" class="nav-link active">
+            <a href="applications.html" class="nav-link active">
                 <span class="material-symbols-outlined">mail</span>
                 <span>Inbox</span>
             </a>
@@ -126,15 +126,15 @@
         <h1 style="margin-bottom: 4px;">Inbox</h1>
  
         <!-- CSS Radio Selectors -->
-        <input type="radio" name="inbox_role_tab" id="tab-owner" class="inbox-tab-radio" checked>
-        <input type="radio" name="inbox_role_tab" id="tab-sitter" class="inbox-tab-radio">
+        <input type="radio" name="inbox_role_tab" id="tab-owner" class="applications.html-tab-radio" checked>
+        <input type="radio" name="inbox_role_tab" id="tab-sitter" class="applications.html-tab-radio">
 
-        <div class="inbox-nav-controls">
-            <label for="tab-owner" class="inbox-tab-label">
+        <div class="applications.html-nav-controls">
+            <label for="tab-owner" class="applications.html-tab-label">
                 <span class="material-symbols-outlined" style="font-size: 1.25rem;">pets</span>
                 <span>Οι Αγγελίες μου (Ιδιοκτήτης)</span>
             </label>
-            <label for="tab-sitter" class="inbox-tab-label">
+            <label for="tab-sitter" class="applications.html-tab-label">
                 <span class="material-symbols-outlined" style="font-size: 1.25rem;">assignment</span>
                 <span>Οι Αιτήσεις μου (Pet Sitter)</span>
             </label>
@@ -167,6 +167,7 @@
                             <th>Εμπειρία</th>
                             <th>Τιμή</th>
                             <th>Σύντομο Βιογραφικό</th>
+                            <th>Αξιολόγηση</th>
                             <th>Ενέργεια</th>
                         </tr>
                     </thead>
@@ -176,6 +177,7 @@
                             <td>3 έτη</td>
                             <td><strong>15€</strong></td>
                             <td>Αγαπώ όλα τα κατοικίδια και είμαι πολύ εξοικειωμένη με μεγάλα σκυλιά.</td>
+                            <td>4.6 <i class="bi bi-star-fill"></i></td>
                             <td>
                                 <div class="button-group" style="justify-content: center; margin: 0; gap: 6px;">
                                     <button type="button" class="btn btn-accept" style="padding: 6px 12px; font-size: 0.85rem;" title="Αποδοχή">
@@ -192,6 +194,7 @@
                             <td>2 έτη</td>
                             <td><strong>20€</strong></td>
                             <td>Έχω μεγάλη εμπειρία με Golden Retriever.</td>
+                            <td>4.2 <i class="bi bi-star-fill"></i></td>
                             <td>
                                 <div class="button-group" style="justify-content: center; margin: 0; gap: 6px;">
                                     <button type="button" class="btn btn-accept" style="padding: 6px 12px; font-size: 0.85rem;" title="Αποδοχή">
@@ -231,6 +234,7 @@
                             <th>Εμπειρία</th>
                             <th>Τιμή</th>
                             <th>Σύντομο Βιογραφικό</th>
+                            <th>Αξιολόγηση</th>
                             <th>Κατάσταση</th>
                         </tr>
                     </thead>
@@ -240,6 +244,7 @@
                             <td>4 έτη</td>
                             <td><strong>35€</strong></td>
                             <td>Είμαι εκπαιδευτής τα τελευταία 7 χρόνια.</td>
+                            <td>4.8 <i class="bi bi-star-fill"></i></td>
                             <td><span class="badge badge-completed">Επιλέχθηκε</span></td>
                         </tr>
                     </tbody>
