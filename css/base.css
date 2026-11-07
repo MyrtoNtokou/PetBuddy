@@ -29,3 +29,26 @@ h4 {font-size: 1.1rem;}
 p {line-height: 1.6;}
 
 .muted { color: var(--text-muted);}
+
+/* 1. Εξασφαλίζουμε ότι το html και το body καταλαμβάνουν όλο το ύψος της οθόνης */
+html, body {
+    height: 100%;
+    margin: 0;
+}
+
+/* 2. Κάνουμε το body flex container κάθετης κατεύθυνσης */
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* 3. Το main ή το βασικό container επεκτείνεται αυτόματα ώστε να σπρώξει το footer κάτω */
+main, .container {
+    flex: 1 0 auto;
+}
+
+/* 4. Το footer δεν συρρικνώνεται */
+footer {
+    flex-shrink: 0;
+}
