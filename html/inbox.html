@@ -18,7 +18,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">  
 
     <style>
-        /* 100% PURE CSS UNDERLINE TABS (NO JAVASCRIPT) */
+        /* CSS for tabs */
         .inbox-tab-radio {
             display: none;
         }
@@ -51,12 +51,11 @@
             color: var(--primary-color);
         }
 
-        /* Αρχικά κρύβουμε και τα δύο panels */
         #panel-owner-ads, #panel-sitter-applications {
             display: none;
         }
 
-        /* Ενεργό Tab Ιδιοκτήτη */
+        /* Pet owner tab - active */
         #tab-owner:checked ~ .inbox-nav-controls label[for="tab-owner"] {
             color: var(--primary-color);
             border-bottom-color: var(--primary-color);
@@ -66,7 +65,7 @@
             display: block;
         }
 
-        /* Ενεργό Tab Sitter */
+        /* Pet sitter tab - active */
         #tab-sitter:checked ~ .inbox-nav-controls label[for="tab-sitter"] {
             color: var(--primary-color);
             border-bottom-color: var(--primary-color);
@@ -123,7 +122,6 @@
         </div>
     </header>
  
-    <!-- Main Content στο αρχικό πλήρες πλάτος (1100px) -->
     <main class="container">
         <h1 style="margin-bottom: 4px;">Inbox</h1>
  
@@ -131,7 +129,6 @@
         <input type="radio" name="inbox_role_tab" id="tab-owner" class="inbox-tab-radio" checked>
         <input type="radio" name="inbox_role_tab" id="tab-sitter" class="inbox-tab-radio">
 
-        <!-- Νέα Tabs με Underline σχεδίαση κάτω από τον τίτλο -->
         <div class="inbox-nav-controls">
             <label for="tab-owner" class="inbox-tab-label">
                 <span class="material-symbols-outlined" style="font-size: 1.25rem;">pets</span>
@@ -143,12 +140,10 @@
             </label>
         </div>
 
-        <!-- ============================================== -->
-        <!-- PANEL 1: ΟΙ ΑΓΓΕΛΙΕΣ ΤΟΥ OWNER -->
-        <!-- ============================================== -->
+        <!-- Pet Owner view - my ads -->
         <div id="panel-owner-ads">
 
-            <!-- Αγγελία 1: Ανοιχτή με Υποψήφιους -->
+            <!-- Ad 1 - open -->
             <div class="card">
                 <div style="display: flex; justify-content: space-between; align-items: center;">
                     <div>
@@ -215,7 +210,7 @@
                 </table>
             </div>
      
-            <!-- Αγγελία 2: Κλειστή Αγγελία -->
+            <!-- Ad 2 - closed -->
             <div class="card">
                 <div style="display: flex; justify-content: space-between; align-items: center;">
                     <div>
@@ -258,9 +253,7 @@
 
         </div>
 
-        <!-- ============================================== -->
-        <!-- PANEL 2: ΟΙ ΑΙΤΗΣΕΙΣ ΤΟΥ PET SITTER -->
-        <!-- ============================================== -->
+        <!-- Pet sitter view -->
         <div id="panel-sitter-applications">
 
             <div class="card">
